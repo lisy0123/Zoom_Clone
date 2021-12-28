@@ -23,6 +23,7 @@
   "homepage": "https://github.com/lisy0123/Zoom_Clone#readme",
   "dependencies": {
     "express": "^4.17.2",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "ws": "^8.4.0"
   }
 }
