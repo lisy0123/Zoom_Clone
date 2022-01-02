@@ -1,0 +1,233 @@
+@import './reset.css';
+
+:root {
+    --light-main-color: #ddd5f7;
+    --main1-color: #8468e8;
+    --main2-color: #6A44F2;
+    --drak-main-color: #392d68;
+    --lightgray-color: #f2f2f2;
+    --gray-color: #A2A2A2;
+    --dark-background-color: #160c2e;
+
+    --space-xxl: 72px;
+    --space-xl: 48px;
+    --space-l: 24px;
+    --space-m: 16px;
+    --space-s: 12px;
+    --space-xs: 8px;
+    --space-xxs: 4px;
+
+    --fontsize-h1: 30px;
+    --fontsize-h2: 26px;
+    --fontsize-h3: 24px;
+    --fontsize-l: 22px;
+    --fontsize-m: 18px;
+    --fontsize-s: 16px;
+    --fontsize-xs: 14px;
+}
+
+body {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+header {
+    margin-top: var(--space-l);
+    margin-bottom: var(--space-s);
+    font-size: var(--fontsize-h3);
+    color: var(--drak-main-color);
+    font-weight: 600;
+}
+
+#welcome form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: var(--space-m);
+    font-size: var(--fontsize-h2);
+}
+
+#roomName {
+    font-size: var(--fontsize-h2);
+    font-weight: 600;
+    outline: none;
+    border: solid 3px var(--main2-color);
+    border-radius: 15px;
+    padding: var(--space-xs);
+    padding-left: var(--space-s);
+    color: var(--main1-color);
+    margin: var(--space-s);
+    margin-top: var(--space-xl);
+}
+
+#roomName::placeholder {
+    color: var(--gray-color);
+    font-size: var(--fontsize-l);
+    font-weight: 400;
+}
+
+#userName {
+    font-size: var(--fontsize-h2);
+    font-weight: 600;
+    outline: none;
+    border: solid 3px var(--main2-color);
+    border-radius: 15px;
+    padding: var(--space-xs);
+    padding-left: var(--space-s);
+    color: var(--main1-color);
+    margin: var(--space-s);
+}
+
+#userName::placeholder {
+    color: var(--gray-color);
+    font-size: var(--fontsize-l);
+    font-weight: 400;
+}
+
+#enterBtn {
+    background-color: var(--main1-color);
+    border-radius: 30px;
+    color: white;
+    padding-left: var(--space-l);
+    padding-right: var(--space-l);
+    font-size: var(--fontsize-m);
+    font-weight: 600;
+    margin: var(--space-l);
+    height: 60px;
+}
+
+#enterBtn:hover {
+    background-color: var(--main2-color);
+    transform: scale(1.05);
+}
+
+#myFace {
+    margin: var(--space-s);
+}
+
+#peerFace {
+    margin: var(--space-s);
+}
+
+#options {
+    margin-top: var(--space-xl);
+    margin-left: 150px;
+    flex-direction: column;
+}
+
+#cameras {
+    color: var(--main1-color);
+    border: none;
+    padding-left: var(--space-m);
+    padding-right: var(--space-s);
+    font-size: var(--fontsize-s);
+    font-weight: 600;
+}
+
+#btn-div {
+    margin: var(--space-m);
+}
+
+#mute {
+    background-color: var(--main1-color);
+    border-radius: 15px 0 0 15px;
+    color: white;
+    padding-left: var(--space-l);
+    padding-right: var(--space-l);
+    font-size: var(--fontsize-m);
+    font-weight: 600;
+    height: 60px;
+}
+
+#mute:hover {
+    background-color: var(--main2-color);
+}
+
+#camera {
+    background-color: var(--main1-color);
+    border-radius: 0 15px 15px 0;
+    color: white;
+    padding-left: var(--space-l);
+    padding-right: var(--space-l);
+    font-size: var(--fontsize-m);
+    font-weight: 600;
+    height: 60px;
+}
+
+#camera:hover {
+    background-color: var(--main2-color);
+}
+
+#roomAndUser {
+    color: var(--main2-color);
+    font-size: var(--fontsize-h1);
+    font-weight: 600;
+    margin-bottom: var(--space-s);
+}
+
+#all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#utils {
+    display: flex;
+    justify-content: center;
+}
+
+#chat-div {
+    width: 500px;
+    padding-right: 80px;
+}
+
+#chat {
+    height: 100px;
+    border-radius: 10px 10px 0 0;
+    background-color: var(--lightgray-color);
+    padding-top: var(--space-xs);
+    overflow: auto;
+}
+
+#chat ul {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--space-s);
+    margin-bottom: var(--space-s);
+    margin-left: var(--space-l);
+    margin-right: var(--space-s);
+    font-size: var(--space-m);
+    font-weight: 300;
+    color: var(--dark-background-color);
+}
+
+#msg-form {
+    border-radius: 0 0 10px 10px;
+    padding: var(--space-s);
+    background-color: var(--main1-color);
+}
+
+#msg {
+    text-align: center;
+    font-size: var(--fontsize-m);
+    font-weight: 400;
+    border: none;
+    outline: none;
+    background-color: var(--main1-color);
+    color: var(--lightgray-color);
+}
+
+#msg::placeholder {
+    color: var(--light-main-color);
+    font-size: var(--fontsize-s);
+    font-weight: 400;
+}
+
+@media screen and (max-width:850px) {
+    .container {
+        flex-direction: column;
+    }
+}

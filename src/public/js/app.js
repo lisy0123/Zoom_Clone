@@ -12,6 +12,7 @@ let myStream;
 let muted = false;
 let cameraOff = false;
 let roomName;
+let userName;
 let myPeerConnection;
 let myDataChannel;
 
@@ -102,6 +103,7 @@ camerasSelect.addEventListener("input", handleCameraChange);
 
 const welcome = document.getElementById("welcome");
 const welcomeForm = welcome.querySelector("form");
+const roomAndUser = document.getElementById("roomAndUser");
 
 async function initCall() {
     welcome.hidden = true;
@@ -112,18 +114,19 @@ async function initCall() {
 
 async function handleWelcomeSubmit(event) {
     event.preventDefault();
-    const input = welcomeForm.querySelector("input");
+    const roomInput = document.getElementById("roomName");
     await initCall();
-    socket.emit("join_room", input.value);
-    roomName = input.value;
-    input.value = "";
+    socket.emit("join_room", roomInput.value);
+    roomName = roomInput.value;
+    roomAndUser.innerText = `[ Room: ${roomName} ]`;
+    roomInput.value = "";
 }
 
 welcomeForm.addEventListener("submit", handleWelcomeSubmit);
 
 // Socket Code
 
-socket.on("welcome", async () => {
+socket.on("welcome", async (roomName) => {
     myDataChannel = myPeerConnection.createDataChannel("chat");
     myDataChannel.addEventListener("message", (event) =>
         console.log(event.data)

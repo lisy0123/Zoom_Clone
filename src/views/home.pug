@@ -4,22 +4,34 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Zoom Clone
-        link(rel="stylesheet", href="https://unpkg.com/mvp.css")
+        title Private 1:1 FaceTalk
+        link(rel="stylesheet", href="./public/css/style.css")
+        //- link(rel="stylesheet", href="https://unpkg.com/mvp.css")
     body
         header
-            h1 Zoom Clone
+            h1 Private 1:1 FaceTalk
         main
             div#welcome
                 form
-                    input(placeholder="room name", required, type="text")
-                    button Enter room
+                    input#roomName(placeholder="Room Name", required, type="text")
+                    input#userName(placeholder="User Name", required, type="text")
+                    button#enterBtn Enter room
             div#call
                 div#myStream
-                    video#myFace(autoplay,playsinline, width="400", height="400")
-                    button#mute Mute
-                    button#camera Turn Camera Off
-                    select#cameras
-                    video#peerFace(autoplay,playsinline, width="400", height="400")
+                    h2#roomAndUser
+                    div#all
+                        video#myFace(autoplay,playsinline, width="600", height="400")
+                        video#peerFace(autoplay,playsinline, width="600", height="400")
+                    div#utils
+                        div#chat-div
+                            div#chat
+                                ul
+                            form#msg-form
+                                input#msg(placeholder="Type Message", required, type="text")
+                        div#options
+                            select#cameras
+                            div#btn-div
+                                button#mute Mute
+                                button#camera Turn Camera Off
         script(src="/socket.io/socket.io.js") 
         script(src="/public/js/app.js")
