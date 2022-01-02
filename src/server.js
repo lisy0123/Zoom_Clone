@@ -1,7 +1,5 @@
 import http from "http";
-// import WebSocket from "ws";
-import { Server } from "socket.io";
-import { instrument } from "@socket.io/admin-ui";
+import SocketIO from "socket.io";
 import express from "express";
 
 const app = express();
@@ -13,16 +11,7 @@ app.get("/", (_, res) => res.render("home"));
 app.get("/*", (_, res) => res.redirect("/"));
 
 const httpServer = http.createServer(app);
-const wsServer = new Server(httpServer, {
-    cors: {
-        origin: ["https://admin.socket.io"],
-        credentials: true,
-    },
-});
-
-instrument(wsServer, {
-    auth: false,
-});
+const wsServer = SocketIO(httpServer);
 
 wsServer.on("connection", (socket) => {
     socket.on("join_room", (roomName) => {
@@ -34,6 +23,9 @@ wsServer.on("connection", (socket) => {
     });
     socket.on("answer", (answer, roomName) => {
         socket.to(roomName).emit("answer", answer);
+    });
+    socket.on("ice", (ice, roomName) => {
+        socket.to(roomName).emit("ice", ice);
     });
 });
 
