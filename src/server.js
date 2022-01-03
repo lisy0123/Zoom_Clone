@@ -14,9 +14,11 @@ const httpServer = http.createServer(app);
 const wsServer = SocketIO(httpServer);
 
 wsServer.on("connection", (socket) => {
-    socket.on("join_room", (roomName) => {
+    socket.on("join_room", (roomName, userName, done) => {
+        socket["nickname"] = userName;
         socket.join(roomName);
-        socket.to(roomName).emit("welcome", roomName);
+        done();
+        socket.to(roomName).emit("welcome", socket.nickname, roomName);
     });
     socket.on("offer", (offer, roomName) => {
         socket.to(roomName).emit("offer", offer);
@@ -26,6 +28,10 @@ wsServer.on("connection", (socket) => {
     });
     socket.on("ice", (ice, roomName) => {
         socket.to(roomName).emit("ice", ice);
+    });
+    socket.on("new_message", (msg, room, done) => {
+        socket.to(room).emit("new_message", socket.nickname, msg);
+        done();
     });
 });
 

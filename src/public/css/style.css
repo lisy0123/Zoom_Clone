@@ -30,15 +30,16 @@ body {
     width: 100%;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    background-color: var(--light-main-color);
 }
 
 header {
-    margin-top: var(--space-l);
+    text-align: center;
+    margin-top: var(--space-xl);
     margin-bottom: var(--space-s);
     font-size: var(--fontsize-h3);
     color: var(--drak-main-color);
-    font-weight: 600;
+    font-weight: 900;
 }
 
 #welcome form {
@@ -53,7 +54,7 @@ header {
     font-size: var(--fontsize-h2);
     font-weight: 600;
     outline: none;
-    border: solid 3px var(--main2-color);
+    border: solid 3px var(--main1-color);
     border-radius: 15px;
     padding: var(--space-xs);
     padding-left: var(--space-s);
@@ -72,7 +73,7 @@ header {
     font-size: var(--fontsize-h2);
     font-weight: 600;
     outline: none;
-    border: solid 3px var(--main2-color);
+    border: solid 3px var(--main1-color);
     border-radius: 15px;
     padding: var(--space-xs);
     padding-left: var(--space-s);
@@ -103,22 +104,13 @@ header {
     transform: scale(1.05);
 }
 
-#myFace {
-    margin: var(--space-s);
-}
-
-#peerFace {
-    margin: var(--space-s);
-}
-
 #options {
-    margin-top: var(--space-xl);
-    margin-left: 150px;
-    flex-direction: column;
+    margin-top: var(--space-m);
 }
 
 #cameras {
     color: var(--main1-color);
+    background-color: var(--light-main-color);
     border: none;
     padding-left: var(--space-m);
     padding-right: var(--space-s);
@@ -132,7 +124,7 @@ header {
 
 #mute {
     background-color: var(--main1-color);
-    border-radius: 15px 0 0 15px;
+    border-radius: 30px 0 0 30px;
     color: white;
     padding-left: var(--space-l);
     padding-right: var(--space-l);
@@ -147,7 +139,7 @@ header {
 
 #camera {
     background-color: var(--main1-color);
-    border-radius: 0 15px 15px 0;
+    border-radius: 0 30px 30px 0;
     color: white;
     padding-left: var(--space-l);
     padding-right: var(--space-l);
@@ -160,74 +152,145 @@ header {
     background-color: var(--main2-color);
 }
 
-#roomAndUser {
+#roomTitle {
+    align-items: center;
+    margin: var(--space-s);
     color: var(--main2-color);
-    font-size: var(--fontsize-h1);
+    font-size: var(--fontsize-m);
     font-weight: 600;
-    margin-bottom: var(--space-s);
+}
+
+#outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #all {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin: var(--space-s);
 }
 
-#utils {
+#face {
     display: flex;
-    justify-content: center;
+    margin: var(--space-s);
 }
 
 #chat-div {
-    width: 500px;
-    padding-right: 80px;
+    width: 350px;
+    margin-top: var(--space-s);
+    margin-bottom: var(--space-l);
+}
+
+#chatTitle {
+    color: var(--main2-color);
+    font-size: var(--fontsize-h2);
+    font-weight: 600;
+    margin-bottom: var(--space-m);
+    text-align: center;
 }
 
 #chat {
-    height: 100px;
-    border-radius: 10px 10px 0 0;
+    height: 420px;
+    border-radius: 20px 20px 0 0;
     background-color: var(--lightgray-color);
-    padding-top: var(--space-xs);
     overflow: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 #chat ul {
     display: flex;
-    justify-content: space-between;
-    margin-top: var(--space-s);
+    flex-direction: column;
+    /* align-items:flex-start; */
+    margin-top: var(--space-xxs);
     margin-bottom: var(--space-s);
-    margin-left: var(--space-l);
+    margin-left: var(--space-m);
     margin-right: var(--space-s);
     font-size: var(--space-m);
     font-weight: 300;
     color: var(--dark-background-color);
 }
 
-#msg-form {
-    border-radius: 0 0 10px 10px;
-    padding: var(--space-s);
+#msg {
+    border-radius: 0 0 20px 20px;
+    padding: var(--space-m);
     background-color: var(--main1-color);
 }
 
-#msg {
-    text-align: center;
+#message {
+    width: 320px;
     font-size: var(--fontsize-m);
     font-weight: 400;
     border: none;
     outline: none;
     background-color: var(--main1-color);
-    color: var(--lightgray-color);
+    color: white;
 }
 
-#msg::placeholder {
+#message::placeholder {
     color: var(--light-main-color);
     font-size: var(--fontsize-s);
     font-weight: 400;
 }
 
-@media screen and (max-width:850px) {
-    .container {
+#myFace {
+    width: 480px;
+    border-radius: 50px 0 0 50px;
+}
+
+#peerFace {
+    width: 480px;
+    border-radius: 0 50px 35px 0;
+}
+
+span {
+    font-size: var(--fontsize-m);
+    font-weight: 600;
+    font-style: italic;
+    color: var(--main2-color);
+    margin: var(--space-xxs);
+    align-items: flex-end;
+    text-align: end;
+}
+
+p {
+    font-size: var(--fontsize-m);
+    font-weight: 600;
+    font-style: italic;
+    color: var(--main2-color);
+    margin: var(--space-xxs);
+}
+
+li {
+    font-weight: 400;
+    font-size: var(--fontsize-s);
+    font-style: normal;
+    background-color: var(--light-main-color);
+    border-radius: 6px;
+    padding: var(--space-xxs);
+    padding-left: var(--space-xs);
+    padding-right: var(--space-xs);
+}
+
+@media screen and (max-width:1300px) {
+    #outer {
         flex-direction: column;
+    }
+
+    #chat-div {
+        width: 600px;
+    }
+
+    #message {
+        width: 570px;
+    }
+
+    #chat {
+        height: 200px;
     }
 }

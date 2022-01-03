@@ -9,7 +9,7 @@ html(lang="en")
         //- link(rel="stylesheet", href="https://unpkg.com/mvp.css")
     body
         header
-            h1 Private 1:1 FaceTalk
+            h1 { Private 1:1 FaceTalk }
         main
             div#welcome
                 form
@@ -18,20 +18,23 @@ html(lang="en")
                     button#enterBtn Enter room
             div#call
                 div#myStream
-                    h2#roomAndUser
-                    div#all
-                        video#myFace(autoplay,playsinline, width="600", height="400")
-                        video#peerFace(autoplay,playsinline, width="600", height="400")
-                    div#utils
+                    div#outer
+                        div#all
+                            div#roomTitle
+                                h2#roomAndUser
+                            div#face
+                                video#myFace(autoplay, playsinline)
+                                video#peerFace(autoplay, playsinline)
+                            div#options
+                                select#cameras
+                                div#btn-div
+                                    button#mute Mute
+                                    button#camera Turn Camera Off
                         div#chat-div
+                            h2#chatTitle Chat.
                             div#chat
                                 ul
-                            form#msg-form
-                                input#msg(placeholder="Type Message", required, type="text")
-                        div#options
-                            select#cameras
-                            div#btn-div
-                                button#mute Mute
-                                button#camera Turn Camera Off
+                            form#msg
+                                input#message(placeholder="Enter the new message", required, type="text")
         script(src="/socket.io/socket.io.js") 
         script(src="/public/js/app.js")
