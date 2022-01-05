@@ -103,10 +103,9 @@ camerasSelect.addEventListener("input", handleCameraChange);
 const welcome = document.getElementById("welcome");
 const welcomeForm = welcome.querySelector("form");
 const chat = document.getElementById("chat-div");
+const msgForm = chat.querySelector("#msg");
 
 async function initCall() {
-    welcome.hidden = true;
-    call.hidden = false;
     await getMedia();
     makeConnection();
 }
@@ -140,8 +139,18 @@ function handleMessageSubmit(event) {
 function showRoom() {
     const roomAndUser = document.getElementById("roomAndUser");
     roomAndUser.innerText = `Room. ${roomName}`;
-    const msgForm = chat.querySelector("#msg");
     msgForm.addEventListener("submit", handleMessageSubmit);
+    socket.on("new_message", addMessage);
+}
+
+function hiddenWelcome(cnt) {
+    if (cnt > 1) {
+        alert("This room is full!");
+    } else {
+        welcome.hidden = true;
+        call.hidden = false;
+        showRoom();
+    }
 }
 
 async function handleWelcomeSubmit(event) {
@@ -151,7 +160,7 @@ async function handleWelcomeSubmit(event) {
     await initCall();
     roomName = roomInput.value;
     userName = userInput.value;
-    socket.emit("join_room", roomName, userName, showRoom);
+    socket.emit("join_room", roomName, userName, hiddenWelcome);
     roomInput.value = "";
     userInput.value = "";
 }
@@ -161,7 +170,6 @@ welcomeForm.addEventListener("submit", handleWelcomeSubmit);
 // Socket Code
 
 socket.on("welcome", async (user, roomName) => {
-    socket.on("new_message", addMessage);
     const offer = await myPeerConnection.createOffer();
     myPeerConnection.setLocalDescription(offer);
     console.log("sent the offer");
@@ -169,7 +177,6 @@ socket.on("welcome", async (user, roomName) => {
 });
 
 socket.on("offer", async (offer) => {
-    socket.on("new_message", addMessage);
     console.log("received the offer");
     myPeerConnection.setRemoteDescription(offer);
     const answer = await myPeerConnection.createAnswer();
