@@ -25,10 +25,10 @@ Zoom Clone with NodeJS, WebRTC and Websockets
 
 - [**Final Challenge**](https://codesandbox.io/s/zoom-03-llzq7)
 
-<img src="https://github.com/lisy0123/Zoom_Clone/blob/main/img.png" alt="img" style="zoom:80%;" />
+<img src="https://github.com/lisy0123/Zoom_Clone/blob/main/img.png" alt="img" style="zoom:65%;" />
 
 ### :pushpin: ​Outstanding graduates
 
-<img src="https://github.com/lisy0123/Zoom_Clone/blob/main/done.png" alt="done" style="zoom:80%;" />
+<img src="https://github.com/lisy0123/Zoom_Clone/blob/main/done.png" alt="done" style="zoom:90%;" />
 
 [↩️ Go Back](https://github.com/lisy0123/Nomadcoders)
