@@ -8,17 +8,17 @@ Zoom Clone with NodeJS, WebRTC and Websockets
 .
 └── src
     ├── public
-    │   ├── css	: For final challenge
+    │   ├── css	                    : For final challenge
     │   └── js
-    │       ├── app.js	: Final challenge (chat & video)
-    │       ├── app_chat.js	: Chat with SocketIO
-    │       └── app_websockets.js	: Chat with websockets
+    │       ├── app.js	            : Final challenge (chat & video)
+    │       ├── app_chat.js         : Chat with SocketIO
+    │       └── app_websockets.js   : Chat with websockets
     ├── server.js
     ├── server_chat.js
     └── views
-        ├── home.pug	: Final challenge (chat & video)
-        ├── home_chat.pug	: Chat with SocketIO
-        └── home_websockets.pug	: Chat with websockets
+        ├── home.pug	             : Final challenge (chat & video)
+        ├── home_chat.pug            : Chat with SocketIO
+        └── home_websockets.pug	     : Chat with websockets
 ```
 
 ### Recommended project
